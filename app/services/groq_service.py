@@ -108,15 +108,15 @@ TOOLS = [
     }
 ]
 
-class GrokService:
+class GroqService:
 
     def __init__(self, db: Session):
         self.db = db
         self.client = OpenAI(
-            api_key=settings.GROK_API_KEY,
+            api_key=settings.GROQ_API_KEY,
             base_url="https://api.groq.com/openai/v1"
         )
-        self.model = settings.GROK_MODEL
+        self.model = settings.GROQ_MODEL
         self.tools = TOOLS
 
     def _run_tool(self, name: str, args: dict) -> str:

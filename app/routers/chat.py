@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.schemas import ChatRequest, ChatResponse
-from app.services.grok_service import GrokService
+from app.services.groq_service import GroqService
 
-router = APIRouter(prefix="/chat", tags=["AI Chat - Grok"])
+router = APIRouter(prefix="/chat", tags=["AI Chat - Groq"])
 
 
 @router.post("/", response_model=ChatResponse)
@@ -20,6 +20,6 @@ def chat(request: ChatRequest, db: Session = Depends(get_db)):
     - 'Quais são os vilões (alignment bad)?'
     - 'Qual herói tem maior inteligência?'
     """
-    service = GrokService(db)
+    service = GroqService(db)
     response_text, tools_used = service.chat(request.message)
     return ChatResponse(response=response_text, tools_used=tools_used)

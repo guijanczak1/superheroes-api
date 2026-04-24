@@ -630,6 +630,7 @@ Os nomes das variáveis estão inconsistentes. Verifique se `.env`, `config.py` 
 
 - `GROQ_API_KEY`
 - `GROQ_MODEL`
+- `TOKEN_API_HEROES` -- Este token voce consegue gerar no site "https://superheroapi.com/"
 
 ---
 
